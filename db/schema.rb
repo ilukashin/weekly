@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2021_01_29_195024) do
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
-    t.time "duration"
+    t.time "duration", null: false
     t.bigint "users_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 2021_01_29_195024) do
   end
 
   create_table "missions", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.time "duration"
+    t.string "name", null: false
+    t.string "description", null: false
+    t.time "duration", null: false
     t.bigint "users_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
