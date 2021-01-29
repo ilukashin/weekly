@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'jquery-rails'
 gem 'bootstrap', '~> 5.0.0.beta1'
+gem 'devise'
+gem 'slim-rails'
 
 
 # Use Active Storage variant
