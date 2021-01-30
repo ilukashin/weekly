@@ -17,22 +17,22 @@ ActiveRecord::Schema.define(version: 2021_01_29_195024) do
 
   create_table "activities", force: :cascade do |t|
     t.time "duration", null: false
-    t.bigint "users_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "missions_id"
-    t.index ["missions_id"], name: "index_activities_on_missions_id"
-    t.index ["users_id"], name: "index_activities_on_users_id"
+    t.bigint "mission_id"
+    t.index ["mission_id"], name: "index_activities_on_mission_id"
+    t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
   create_table "missions", force: :cascade do |t|
     t.string "name", null: false
     t.string "description", null: false
     t.time "duration", null: false
-    t.bigint "users_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["users_id"], name: "index_missions_on_users_id"
+    t.index ["user_id"], name: "index_missions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2021_01_29_195024) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "activities", "missions", column: "missions_id"
-  add_foreign_key "activities", "users", column: "users_id"
-  add_foreign_key "missions", "users", column: "users_id"
+  add_foreign_key "activities", "missions"
+  add_foreign_key "activities", "users"
+  add_foreign_key "missions", "users"
 end

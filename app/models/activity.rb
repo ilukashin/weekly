@@ -1,6 +1,6 @@
 class Activity < ApplicationRecord
-  belongs_to :users
-  belongs_to :missions
+  belongs_to :user
+  belongs_to :mission
 
   validates :duration, presence: true
 end

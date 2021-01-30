@@ -1,0 +1,10 @@
+= form_with model: @activity, local: true do |f|
+
+  = f.label :duration
+  = f.time_field :duration
+
+  = f.label :mission_id
+  = f.collection_select(:mission_id, @activity.user.missions, :id, :name, prompt: true)
+  
+  = f.submit
+
