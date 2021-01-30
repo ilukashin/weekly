@@ -1,5 +1,8 @@
-h1 Your weekly activities
+p= link_to 'New activity', new_activity_path, class: "btn btn-success"
 
-= render @activities
+div.text-center
+  h1 Your weekly activities
 
-p= link_to 'New activity', new_activity_path
+div.row.g-3
+  = render @activities
+

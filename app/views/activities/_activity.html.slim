@@ -1,8 +1,9 @@
+div.col-sm-4
+  div.card.shadow-sm
+    div.card-header
+      h5.float-start = "Mission: #{activity.mission.name}"
+      =link_to '', activity_path(activity), class: "btn-close float-end", type: 'button', aria: { label: 'Delete' }, method: :delete
 
-p= activity.duration
-p= activity.mission.name
-
-p= link_to 'Edit', edit_activity_path(activity)
-p= link_to 'Delete', activity_path(activity), method: :delete
-
-
+    div.card-body
+      h6.card-subtitle = "Duration: #{activity.duration.strftime("%H:%M")} hour(s)"
+      =link_to '', edit_activity_path(activity), class: "link-warning stretched-link"

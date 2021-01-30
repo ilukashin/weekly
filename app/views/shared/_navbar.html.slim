@@ -1,10 +1,14 @@
--if user_signed_in?
-  ul
-    li= link_to 'Weekly', missions_path
-    li= link_to 'Activities', activities_path
-
-    li= link_to 'Sign out', destroy_user_session_path, method: :delete
--else
-  ul
-    li= link_to 'Login', new_user_session_path
-    li= link_to 'Signup', new_user_registration_path
+header.bg-white.border-bottom.shadow-sm
+  nav class="navbar navbar-expand-md navbar-dark"
+    div.container
+      div class="navbar-collapse collapse" id="collapsingNavbar"
+        -if user_signed_in?
+          ul class="navbar-nav"
+            li.nav-item= link_to 'Activities', activities_path, class: "nav-link"
+            li.nav-item= link_to 'Missions', missions_path, class: "nav-link"
+          ul class="navbar-nav ms-auto"
+            li.nav-item= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "nav-link"
+        -else
+          ul class="navbar-nav ms-auto"
+            li.nav-item= link_to 'Login', new_user_session_path, class: "nav-link"
+            li.nav-item= link_to 'Signup', new_user_registration_path, class: "nav-link"

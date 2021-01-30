@@ -19,7 +19,7 @@ class MissionsController < ApplicationController
 
     @mission.user = current_user
     if @mission.save!
-      redirect_to @mission, notice: 'Success'
+      redirect_to missions_path, notice: 'Success'
     else
       render :new
     end

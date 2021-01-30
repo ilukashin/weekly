@@ -1,0 +1,27 @@
+!DOCTYPE html
+html
+  head
+    meta charset="utf-8"
+    
+    =titleWeekly
+    =csrf_meta_tags
+    =csp_meta_tag
+
+    =stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    =javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  
+
+  body
+    =render 'shared/navbar'
+
+    main
+      div.container.px-5
+        p.alert-success.rounded= notice
+        p.alert-danger.rounded= alert
+        =yield
+      
+    =render 'shared/footer'
+    
+
+  
+

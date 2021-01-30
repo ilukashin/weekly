@@ -1,5 +1,8 @@
-h1 Your weekly missions
+p= link_to 'New mission', new_mission_path, class: "btn btn-success"
 
-= render @missions
+div.text-center
+  h1 Your weekly missions
 
-p= link_to 'New mission', new_mission_path
+div.row.g-3
+  = render @missions
+

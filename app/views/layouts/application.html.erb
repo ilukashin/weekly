@@ -12,11 +12,22 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
+    <header class="bg-white border-bottom shadow-sm">
+      <%= render 'shared/navbar' %>
+    </header>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <main>
+      <div class="container px-5">
+        <p class="alert-success rounded"><%= notice %></p>
+        <p class="alert-danger rounded"><%= alert %></p>
 
-    <%= yield %>
+        <%= yield %>
+      </div>
+    </main>
+
+    <footer class="footer mt-auto py-3 bg-light">
+      <%= render 'shared/footer' %>
+    </footer>
+
   </body>
 </html>

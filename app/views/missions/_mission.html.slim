@@ -1,8 +1,14 @@
-p= mission.name
-p= mission.description
-p= mission.duration
+div.col-sm-4
+  div.card.shadow-sm
+    div.card-header
+      h5.float-start= "Mission name: #{mission.name}"
+      =link_to '', mission_path(mission), class: "btn-close float-end", type: 'button', aria: { label: 'Delete' }, method: :delete
 
-p= link_to 'Edit', edit_mission_path(mission)
-p= link_to 'Delete', mission_path(mission), method: :delete
+    div.card-body
+      div.card-text
+      
+        h5.card-title = "Description: #{mission.description}"
+        h6.card-subtitle = "Duration: #{mission.duration.strftime("%H:%M")} hour(s)"
 
+        =link_to '', edit_mission_path(mission), class: "link-warning stretched-link"
 

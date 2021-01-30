@@ -20,7 +20,7 @@ class ActivitiesController < ApplicationController
 
     @activity.user = current_user
     if @activity.save!
-      redirect_to @activity, notice: 'Success'
+      redirect_to activities_path, notice: 'Success'
     else
       render :new
     end

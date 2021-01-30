@@ -1,12 +1,20 @@
-= form_with model: @mission, local: true do |f|
-  = f.label :name
-  = f.text_field :name
+div.d-flex.justify-content-center 
+  = form_with model: @mission, class: "col-md-5", local: true do |f|
+    div class="form-group"
+      p
+        = f.label :name, class: "form-label"
+        = f.text_field :name, class: 'form-control'
 
-  = f.label :description
-  = f.text_field :description
+    div class="form-group"
+      p
+        = f.label :description, class: "form-label"
+        = f.text_field :description, class: 'form-control'
 
-  = f.label :duration
-  = f.time_field :duration
-  
-  = f.submit
+    div class="form-group"
+      p
+        = f.label :duration, class: "form-label"
+        = f.time_field :duration, class: 'form-control'
+    
+    div class="form-group"
+      p= f.submit class: "btn btn-primary"
 

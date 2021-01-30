@@ -1,10 +1,14 @@
-= form_with model: @activity, local: true do |f|
+div.d-flex.justify-content-center 
+  = form_with model: @activity, class: "col-md-5", local: true do |f|
+    div class="form-group"
+      p
+        = f.label :duration, class: "form-label"
+        = f.time_field :duration, class: 'form-control'
 
-  = f.label :duration
-  = f.time_field :duration
-
-  = f.label :mission_id
-  = f.collection_select(:mission_id, @activity.user.missions, :id, :name, prompt: true)
-  
-  = f.submit
-
+    div class="form-group"
+      p
+        = f.label :mission_id, class: "form-label"
+        = f.collection_select :mission_id, @activity.user.missions, :id, :name, { prompt: true }, { class: "form-select" }
+    
+    div class="form-group"
+      p= f.submit class: "btn btn-primary"
