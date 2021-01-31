@@ -42,6 +42,12 @@ class ActivitiesController < ApplicationController
     redirect_to activities_path
   end
 
+  def chart
+    @activities = Activity.users_last_week(current_user)
+    @chart = Activity.week_chart(current_user)
+    @total_time_spent = Activity.weekly_spent(current_user)
+  end
+
   private
 
   def activity_params

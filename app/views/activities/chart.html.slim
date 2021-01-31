@@ -1,0 +1,43 @@
+div.row.g-3
+  div.chart.col-md-6.col-sm-6
+    = pie_chart @chart, title: "Weekly chart",
+                        library: { \
+                          chart: { backgroundColor: "#c2c2d6"},
+                          plotOptions: {\
+                            series: {\
+                              states: {\
+                                hover: { halo: "null" } \
+                              }\
+                            }\
+                          }\
+                        }
+
+
+  div.col-md-6.col-sm-6
+    table.table.table-striped.caption-top
+      caption= 'List of activities'
+      thead
+        tr
+          th= 'Name'
+          th= 'Duration'
+          th= 'Date'
+
+      tbody
+        -@activities.each do |activity|
+          tr
+            td= activity.mission.name
+            td= activity.duration.strftime("%H:%M")
+            td
+              div
+                = activity.created_at.strftime("%d-%m-%Y")
+                = link_to '', activity_path(activity), class: "btn-close float-end", type: 'button', aria: { label: 'Delete' }, method: :delete
+      tfoot
+        tr.table-dark
+          td="Total"
+          td= @total_time_spent.strftime("%H:%M")
+          td    
+          
+    div.btn-group
+      = link_to 'New activity', new_activity_path, class: "btn btn-outline-secondary"
+      = link_to 'New mission', new_mission_path, class: "btn btn-outline-secondary"
+

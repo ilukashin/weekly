@@ -6,6 +6,8 @@ header.bg-white.border-bottom.shadow-sm
           ul class="navbar-nav"
             li.nav-item= link_to 'Activities', activities_path, class: "nav-link"
             li.nav-item= link_to 'Missions', missions_path, class: "nav-link"
+            li.nav-item= link_to 'Chart', chart_path, class: "nav-link"
+
           ul class="navbar-nav ms-auto"
             li.nav-item= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "nav-link"
         -else
