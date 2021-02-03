@@ -1,6 +1,20 @@
+div.calendar
+  = week_calendar(events: @activities, attribute: :created_at) do |week, activities|
+    = week
+    table.table
+      thead
+          tr
+            th= 'Name'
+            th= 'Duration'
+      tbody
+      - activities.each do |activity|
+        tr
+          td= activity.mission.name
+          td= activity.duration.strftime("%H:%M")
+
 div.row.g-3
   div.chart.col-md-6.col-sm-6
-    = pie_chart @chart, title: "Weekly chart",
+    = pie_chart @chart_data, title: "Weekly chart",
                         library: { \
                           chart: { backgroundColor: "#c2c2d6"},
                           plotOptions: {\
@@ -8,7 +22,8 @@ div.row.g-3
                               states: {\
                                 hover: { halo: "null" } \
                               }\
-                            }\
+                            },\
+                            pie: { borderWidth: 0 }\
                           }\
                         }
 
@@ -34,7 +49,10 @@ div.row.g-3
       tfoot
         tr.table-dark
           td="Total"
-          td= @total_time_spent.strftime("%H:%M")
+          - if @activities.empty?
+            td= "00:00"
+          - else
+            td= @activities.sum(:duration).delete_suffix(':00')
           td    
           
     div.btn-group

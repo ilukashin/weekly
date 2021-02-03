@@ -26,7 +26,8 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 5.0.0.beta1'
 gem 'devise'
 gem 'slim-rails'
-gem "chartkick"
+gem 'chartkick'
+gem 'simple_calendar'
 
 
 # Use Active Storage variant

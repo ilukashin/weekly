@@ -31,7 +31,7 @@ class ActivitiesController < ApplicationController
 
   def update
     if @activity.update(activity_params)
-      redirect_to @activity
+      redirect_to activities_path
     end
     
   end
@@ -40,12 +40,6 @@ class ActivitiesController < ApplicationController
     @activity.destroy
 
     redirect_to activities_path
-  end
-
-  def chart
-    @activities = Activity.users_last_week(current_user)
-    @chart = Activity.week_chart(current_user)
-    @total_time_spent = Activity.weekly_spent(current_user)
   end
 
   private

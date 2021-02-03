@@ -30,9 +30,8 @@ class MissionsController < ApplicationController
 
   def update
     if @mission.update(mission_params)
-      redirect_to @mission
+      redirect_to missions_path
     end
-    
   end
   
   def destroy
