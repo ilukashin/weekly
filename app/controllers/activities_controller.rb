@@ -20,7 +20,7 @@ class ActivitiesController < ApplicationController
 
     @activity.user = current_user
     if @activity.save!
-      redirect_to activities_path, notice: 'Success'
+      redirect_to chart_path, notice: 'Success'
     else
       render :new
     end
@@ -31,15 +31,14 @@ class ActivitiesController < ApplicationController
 
   def update
     if @activity.update(activity_params)
-      redirect_to activities_path
+      redirect_to chart_path
     end
-    
   end
   
   def destroy
     @activity.destroy
 
-    redirect_to activities_path
+    redirect_to chart_path
   end
 
   private

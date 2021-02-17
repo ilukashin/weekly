@@ -1,4 +1,5 @@
 class ChartsController < ApplicationController
+  before_action :authenticate_user!
 
   def chart
     @activities = Activity.users_last_week(current_user, week_daterange)
