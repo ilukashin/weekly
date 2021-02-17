@@ -2,6 +2,8 @@ class MissionsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_mission, only: [:show, :edit, :update, :destroy]
 
+  load_and_authorize_resource
+
   def index
     @missions = current_user.missions
   end

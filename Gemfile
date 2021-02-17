@@ -28,6 +28,7 @@ gem 'devise'
 gem 'slim-rails'
 gem 'chartkick'
 gem 'simple_calendar'
+gem 'cancancan'
 
 
 # Use Active Storage variant
