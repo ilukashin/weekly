@@ -1,5 +1,7 @@
 div.d-flex.justify-content-center 
   = form_with model: @activity, class: "col-md-5", local: true do |f|
+    p = render 'shared/errors', resource: @activity
+
     div class="form-group"
       p
         = f.label :duration, class: "form-label"

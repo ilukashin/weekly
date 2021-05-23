@@ -20,9 +20,11 @@ class MissionsController < ApplicationController
     @mission = Mission.new(mission_params)
 
     @mission.user = current_user
-    if @mission.save!
-      redirect_to missions_path, notice: 'Success'
+    if @mission.save
+      redirect_to missions_path, notice: 'Successfully created'
     else
+
+      flash.now[:alert] = 'Action failed'
       render :new
     end
   end
@@ -32,14 +34,17 @@ class MissionsController < ApplicationController
 
   def update
     if @mission.update(mission_params)
-      redirect_to missions_path
+      redirect_to missions_path, notice: 'Successfully updated'
+    else
+      flash.now[:alert] = 'Action failed'
+      render :edit
     end
   end
   
   def destroy
     @mission.destroy
 
-    redirect_to missions_path
+    redirect_to missions_path, notice: 'Successfully deleted'
   end
 
   private

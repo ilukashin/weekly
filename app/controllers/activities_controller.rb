@@ -21,9 +21,10 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new(activity_params)
 
     @activity.user = current_user
-    if @activity.save!
-      redirect_to chart_path, notice: 'Success'
+    if @activity.save
+      redirect_to chart_path, notice: 'Successfully created'
     else
+      flash.now[:alert] = 'Action failed'
       render :new
     end
   end
@@ -33,14 +34,17 @@ class ActivitiesController < ApplicationController
 
   def update
     if @activity.update(activity_params)
-      redirect_to chart_path
+      redirect_to chart_path, notice: 'Successfully updated'
+    else
+      flash.now[:alert] = 'Action failed'
+      render :edit
     end
   end
   
   def destroy
     @activity.destroy
 
-    redirect_to chart_path
+    redirect_to chart_path, notice: 'Successfully deleted'
   end
 
   private
