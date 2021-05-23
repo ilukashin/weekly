@@ -3,12 +3,17 @@ div.d-flex.justify-content-center
     div class="form-group"
       p
         = f.label :duration, class: "form-label"
-        = f.time_field :duration, class: 'form-control', placeholder: 'hh:mm'
+        = f.time_field :duration, class: 'form-control'
 
     div class="form-group"
       p
         = f.label :mission_id, class: "form-label"
         = f.collection_select :mission_id, @activity.user.missions, :id, :name, { prompt: true }, { class: "form-select" }
+
+    div class="form-group"
+      p
+        = f.label :date, class: "form-label"
+        = f.date_field :date, class: 'form-control'
     
     div class="form-group"
       p= f.submit class: "btn btn-primary"

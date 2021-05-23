@@ -3,6 +3,7 @@ class Activity < ApplicationRecord
   belongs_to :mission
 
   validates :duration, presence: true
+  validates :date, presence: true
 
   def self.to_chart_data(activities)
     return nil if activities.empty?
@@ -12,7 +13,7 @@ class Activity < ApplicationRecord
   end
 
   def self.users_last_week(user, date_range)
-    user.activities.where(created_at: date_range)
+    user.activities.where(date: date_range)
   end
 
 end

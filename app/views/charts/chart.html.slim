@@ -1,5 +1,5 @@
 div.calendar
-  = week_calendar(events: @activities, attribute: :created_at) do |week, activities|
+  = week_calendar(events: @activities, attribute: :date) do |week, activities|
     = week
     table.table
       thead
@@ -44,7 +44,7 @@ div.row.g-3
             td= activity.duration.strftime("%H:%M")
             td
               div
-                = activity.created_at.strftime("%d-%m-%Y")
+                = activity.date.strftime("%d-%m-%Y")
               span.text-end
                 = link_to 'Edit', edit_activity_path(activity)
                 = link_to '', activity_path(activity), class: "btn-close float-end", type: 'button', aria: { label: 'Delete' }, method: :delete
