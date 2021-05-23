@@ -47,7 +47,7 @@ div.row.g-3
                 = activity.date.strftime("%d-%m-%Y")
               span.text-end
                 = link_to 'Edit', edit_activity_path(activity)
-                = link_to '', activity_path(activity), class: "btn-close float-end", type: 'button', aria: { label: 'Delete' }, method: :delete
+                = button_to '', activity_path(activity), class: "btn-close float-end", type: 'button', aria: { label: 'Delete' }, method: :delete
       tfoot
         tr.table-dark
           td="Total"

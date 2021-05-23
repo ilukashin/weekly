@@ -2,7 +2,7 @@ div.col-sm-4
   div.card.shadow-sm
     div.card-header
       h5.float-start= "Mission name: #{mission.name}"
-      =link_to '', mission_path(mission), class: "btn-close float-end", type: 'button', aria: { label: 'Delete' }, method: :delete
+      =button_to '', mission_path(mission), class: "btn-close float-end", type: 'button', aria: { label: 'Delete' }, method: :delete
 
     div.card-body
       div.card-text
